@@ -1,13 +1,14 @@
 import React from 'react-native'
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './src/screens/Login'
+import { Provider } from 'react-redux';
 
 
 function App() {
   return (
-    <View style={styles.container}>
-      <Login />
-    </View>
+      <View style={styles.container}>
+        <Login />
+      </View>
   );
 }
 

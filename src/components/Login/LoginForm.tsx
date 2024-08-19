@@ -1,10 +1,22 @@
 import React, { Pressable } from "react-native";
+import { useEffect, useState } from "react";
 import {View, StyleSheet, Linking, Text, Button } from "react-native";
+import axios from "axios";
 import Input from "../../utils/Input";
+import baseURL from "../../../services/api";
 
 interface Link {
     label: string,
     url: string
+}
+
+const login = async (credentials) => {
+    console.log(credentials);
+    try {
+        // const response = await axios.post(baseURL, credentials)
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 const Link = ({label, url}: Link) => {
@@ -16,9 +28,9 @@ const Link = ({label, url}: Link) => {
         <Text style={styles.forgetPassword} onPress={handlePress}>{label}</Text>)
 }
 
-const Submit = () => {
+const Submit = (credentials) => {
     const handleSubmit = async () => {
-        console.log('falta implementar')
+        await login(credentials)
     }
 
     return (
@@ -39,12 +51,23 @@ const Footer = () => {
 
 
 const LoginForm = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [credentials, setCredentials] = useState({})
+
+    useEffect(() => {
+        setCredentials({
+            email: email,
+            password: password
+        })
+    }, [])
+
     return (
         <View style={styles.container}>
-            <Input label="E-mail ou celular" />
-            <Input label="Senha" />
+            <Input type="text" label="E-mail ou celular" state={email} setState={setEmail} />
+            <Input type="password" label="Senha" state={password} setState={setPassword}/>
             <Link label={'Esqueci minha senha'} url={'www.google.com'}/>
-            <Submit />
+            <Submit credentials={credentials}/>
             <Footer />
         </View>
     )
