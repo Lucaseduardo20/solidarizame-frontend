@@ -1,6 +1,6 @@
 import React, { View, Text, TextInput, StyleSheet } from 'react-native'
 
-interface props {
+type props = {
     label: string,
     state: string,
     setState: any,
@@ -11,7 +11,7 @@ const Input = ({label, state, setState, type}: props) => {
     return (
         <View style={styles.container}>
             <Text>{label}</Text>
-            <TextInput secureTextEntry={type === 'password' ? true : false} style={styles.input} value={state} onChangeText={setState}></TextInput>
+            <TextInput secureTextEntry={type === 'password' ? true : false} style={styles.input} value={state} onChangeText={(text) => setState(text)}></TextInput>
         </View>
     )
 }

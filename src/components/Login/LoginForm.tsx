@@ -60,7 +60,7 @@ const LoginForm = () => {
             email: email,
             password: password
         })
-    }, [])
+    }, [email, password])
 
     return (
         <View style={styles.container}>
