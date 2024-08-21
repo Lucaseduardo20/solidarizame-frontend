@@ -10,16 +10,6 @@ interface Link {
     url: string
 }
 
-const login = async (credentials) => {
-    try {
-        const response = await axios.post(baseURL, credentials)
-
-        return response.data
-    } catch (err) {
-        console.log(err)
-    }
-}
-
 const Link = ({label, url}: Link) => {
     const handlePress = async () => {
         await Linking.openURL(url);
@@ -29,10 +19,7 @@ const Link = ({label, url}: Link) => {
         <Text style={styles.forgetPassword} onPress={handlePress}>{label}</Text>)
 }
 
-const Submit = (credentials) => {
-    const handleSubmit = async () => {
-        await login(credentials)
-    }
+const Submit = (credentials, handleSubmit) => {
 
     return (
         <Pressable style={styles.submit} onPress={handleSubmit}>
@@ -56,6 +43,21 @@ const LoginForm = (props) => {
     const [password, setPassword] = useState('');
     const [credentials, setCredentials] = useState({})
 
+    const login = async (credentials) => {
+        try {
+            const response = await axios.post(baseURL, credentials)
+            console.log(response.data);
+            props.navigation.navigate('Home')
+            return response.data
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const handleSubmit = async () => {
+        await login(credentials)
+    }
+
     useEffect(() => {
         setCredentials({
             email: email,
@@ -68,7 +70,7 @@ const LoginForm = (props) => {
             <Input type="text" label="E-mail ou celular" state={email} setState={setEmail} />
             <Input type="password" label="Senha" state={password} setState={setPassword}/>
             <Link label={'Esqueci minha senha'} url={'www.google.com'}/>
-            <Submit credentials={credentials}/>
+            <Submit credentials={credentials} handleSubmit={handleSubmit}/>
             <Footer />
         </View>
     )
