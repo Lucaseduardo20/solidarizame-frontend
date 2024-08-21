@@ -11,9 +11,10 @@ interface Link {
 }
 
 const login = async (credentials) => {
-    console.log(credentials);
     try {
-        // const response = await axios.post(baseURL, credentials)
+        const response = await axios.post(baseURL, credentials)
+
+        return response.data
     } catch (err) {
         console.log(err)
     }
@@ -50,7 +51,7 @@ const Footer = () => {
 }
 
 
-const LoginForm = () => {
+const LoginForm = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [credentials, setCredentials] = useState({})
