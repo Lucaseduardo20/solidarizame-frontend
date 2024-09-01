@@ -19,10 +19,11 @@ const Login = () => {
 
 const styles = StyleSheet.create({
     container: {
+        padding: '10%',
         backgroundColor: '#fff',
-        height: '90%',
+        height: '100%',
         display: 'flex',
-        width: '80%',
+        width: '100%',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-around'
