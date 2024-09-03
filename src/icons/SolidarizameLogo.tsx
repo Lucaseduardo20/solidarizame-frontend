@@ -1,11 +1,16 @@
-import React, { View } from "react-native"
-import Svg, {Path} from 'react-native-svg'
+import React, { DimensionValue, View } from "react-native"
+import Svg, {NumberProp, Path} from 'react-native-svg'
 
 
-const SolidarizameLogo = () => {
+interface PropsType {
+    width?: NumberProp,
+    height?:  NumberProp
+}
+
+const SolidarizameLogo = ({width = 72, height = 41}: PropsType) => {
     return (
         <View>
-            <Svg width="72" height="41" viewBox="0 0 72 41" fill="none">
+            <Svg width={width} height={width} viewBox="0 0 72 41" fill="none">
                 <Path d="M59.177 -5.17294e-07L71.0114 20.5L47.3427 20.5L59.177 -5.17294e-07Z" fill="#60A5FA" />
                 <Path d="M59.177 41L71.0114 20.5L47.3427 20.5L59.177 41Z" fill="#93C5FD" />
                 <Path d="M35.5083 41L59.1769 41L47.3426 20.5" fill="#3B82F6" />

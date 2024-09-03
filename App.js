@@ -10,9 +10,11 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login'>
-        <Stack.Screen name='Login' component={Login} />
-        <Stack.Screen name='Home' component={Home} />
+      <Stack.Navigator  style={styles.container}   screenOptions={{
+    headerShown: false
+  }}>
+        <Stack.Screen name='Login' component={Home}></Stack.Screen>
+        <Stack.Screen name='Home' component={Home}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

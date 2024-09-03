@@ -1,7 +1,10 @@
-import { Text } from "react-native"
+import { NavBar } from "../components/NavBar"
 
 export const Home = ({navigation}) => {
+
     return (
-        <Text>Ola mundo</Text>
+        <>
+            <NavBar />
+        </>
     )
 }
