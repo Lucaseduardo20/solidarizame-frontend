@@ -7,10 +7,10 @@ export const NavBar = () => {
         container: {
             width: '100%',
             height: ' 13%',
-            // backgroundColor: 'grey',
             flexDirection: 'row',
             alignItems: 'flex-end',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
+            paddingHorizontal: 20
         },
         title: {
             fontFamily: 'Inter',
