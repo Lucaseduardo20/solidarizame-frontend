@@ -1,7 +1,8 @@
 import {useState} from "react"
-import { StyleSheet, Text, View, TextInput } from "react-native"
+import { StyleSheet, Text, View, TextInput, ScrollView } from "react-native"
 import {IconInput} from "../../utils/IconInput"
 import { PlacesCarousel } from "./PlacesCarousel/PlacesCarousel"
+import { DonateSession } from "./DonateSession/DonateSession"
 
 export const HomeBody = () => {
     const [searchField, setSearchField] = useState();
@@ -36,7 +37,7 @@ export const HomeBody = () => {
         }
     })
     return (
-        <>
+        <ScrollView style={{height: 'auto'}} scrollEnabled showsVerticalScrollIndicator={false}>
             <View style={styles.header}>
                 <View style={styles.titleArea}>
                     <Text style={styles.title}>Olá, Lucas!</Text>
@@ -46,8 +47,9 @@ export const HomeBody = () => {
             </View>
             <View style={styles.body}>
                 <PlacesCarousel></PlacesCarousel>
+                <DonateSession></DonateSession>
             </View>
-        </>
+        </ScrollView>
 
     )
 }

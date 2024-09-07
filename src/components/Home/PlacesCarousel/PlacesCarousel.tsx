@@ -5,7 +5,7 @@ export const PlacesCarousel = () => {
     const styles = StyleSheet.create({
         container: {
             width: '100%',
-            height: '56%',
+            height: 320,
             justifyContent: 'space-between',
             backgroundColor: '#1E3A8A',
             paddingLeft: 10,
