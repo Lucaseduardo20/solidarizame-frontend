@@ -5,7 +5,7 @@ export const Home = ({navigation}) => {
 
     return (
         <>
-            <NavBar />
+            <NavBar navigation={navigation} />
             <HomeBody />
         </>
     )

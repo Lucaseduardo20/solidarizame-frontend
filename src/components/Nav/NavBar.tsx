@@ -4,7 +4,7 @@ import Feather from '@expo/vector-icons/Feather';
 import { NavContainer } from "./NavContainer";
 import { useState } from "react";
 
-export const NavBar = () => {
+export const NavBar = (props) => {
     const [navOpen, setNavOpen] = useState(false);
 
     const navbar = StyleSheet.create({
@@ -39,7 +39,7 @@ export const NavBar = () => {
                     <Feather name="menu" size={35} color="#7A7786" />
                 </TouchableOpacity>
             </View>
-            <NavContainer trigger={navOpen} setTrigger={setNavOpen} />
+            <NavContainer trigger={navOpen} setTrigger={setNavOpen} navigation={props.navigation}/>
         </>
     )
 }

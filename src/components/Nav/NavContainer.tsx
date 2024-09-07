@@ -1,13 +1,15 @@
 import { Modal, View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import Feather from '@expo/vector-icons/Feather';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 type PropsType = {
     trigger: boolean,
-    setTrigger: Function
+    setTrigger: Function,
+    navigation: any
 }
 
 
-export const NavContainer = ({trigger, setTrigger}: PropsType) => {
+export const NavContainer = (props: PropsType) => {
     const styles = StyleSheet.create({
         container : {
             width: '100%',
@@ -46,19 +48,25 @@ export const NavContainer = ({trigger, setTrigger}: PropsType) => {
             borderRadius: 8,
             paddingHorizontal: 10,
             justifyContent: 'center'
+        },
+        logoutContainer: {
+            width: '100%',
+            height: 'auto',
+            alignItems: 'flex-end',
+            paddingHorizontal: 10
         }
     })
 
     return (
         <Modal
-        visible={trigger}
+        visible={props.trigger}
         transparent={true}
         animationType="fade"
         >
             <View style={styles.container}>
                 <View style={styles.navigation}>
                     <View style={styles.header}>
-                        <TouchableOpacity onPress={() => setTrigger(false)} style={styles.navButton}>
+                        <TouchableOpacity onPress={() => props.setTrigger(false)} style={styles.navButton}>
                             <Feather name="menu" size={35} color="#7A7786" />
                         </TouchableOpacity>
                         <View style={styles.navList}>
@@ -78,6 +86,11 @@ export const NavContainer = ({trigger, setTrigger}: PropsType) => {
                                 <Text>Configurações</Text>
                             </TouchableOpacity>
                         </View>
+                    </View>
+                    <View style={styles.logoutContainer}>
+                        <TouchableOpacity onPress={() => {props.navigation.navigate('Home'); props.setTrigger(!props.trigger)}}>
+                            <MaterialIcons name="logout" size={30} color="#3B82F6" />
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
