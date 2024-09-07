@@ -57,6 +57,11 @@ export const NavContainer = (props: PropsType) => {
         }
     })
 
+    const handleLogout = () => {
+        props.navigation.navigate('Home')
+        props.setTrigger(!props.trigger)
+    }
+
     return (
         <Modal
         visible={props.trigger}
@@ -88,7 +93,7 @@ export const NavContainer = (props: PropsType) => {
                         </View>
                     </View>
                     <View style={styles.logoutContainer}>
-                        <TouchableOpacity onPress={() => {props.navigation.navigate('Home'); props.setTrigger(!props.trigger)}}>
+                        <TouchableOpacity onPress={() => handleLogout()}>
                             <MaterialIcons name="logout" size={30} color="#3B82F6" />
                         </TouchableOpacity>
                     </View>
