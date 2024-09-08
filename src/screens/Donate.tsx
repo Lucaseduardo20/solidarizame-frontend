@@ -1,8 +1,13 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { NavBar } from "../components/Nav/NavBar"
+import { DonateSelectValue } from "../components/Donate/DonateSelectValue";
+import { useState } from "react";
+import { DonatePay } from "../components/Donate/DonatePay";
 
 export const Donate = (props) => {
+    const [donateValue, setDonateValue] = useState();
+
     const styles = StyleSheet.create({
         container: {
             height: '100%',
@@ -64,6 +69,7 @@ export const Donate = (props) => {
             paddingHorizontal: 10
         }
     })
+
     return (
         <View style={styles.container}>
             <NavBar navigation={props.navigation} />
@@ -76,46 +82,13 @@ export const Donate = (props) => {
                 <Text style={styles.title}>Doação em Dinheiro</Text>
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={styles.content}>
-                    <Text style={styles.infoText}>Esse PIX é oficial do governo do estado do Rio Grande do Sul, todo o dinheiro arrecadado será administrado pelo estado e será destinado para ajudar as vitimas da tragedia e na recuperação das cidades.</Text>
-                    <Text style={{
-                        fontFamily: 'Inter',
-                        fontSize: 18,
-                        fontWeight: 'bold',
-                        marginVertical: 30
-                    }}>Selecione um valor</Text>
-                    <View style={styles.valuesContainer}>
-                        <TouchableOpacity>
-                            <View style={styles.valueCard}>
-                                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>R$5,00</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={styles.valueCard}>
-                                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>R$10,00</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={styles.valueCard}>
-                                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>R$25,00</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={styles.valueCard}>
-                                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>R$50,00</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <View style={{ width: '100%', alignItems: 'center' }}>
-                            <TouchableOpacity>
-                                <View style={styles.otherValueCard}>
-                                    <MaterialIcons name="add-circle-outline" size={35} color="#60A5FA" />
-                                    <Text style={{fontSize: 18, fontWeight: 'bold'}}> Outros Valores</Text>
-                                </View>
-                            </TouchableOpacity>
+                {!donateValue ? (
+                    <DonateSelectValue value={donateValue} setValue={setDonateValue}/>
 
-                        </View>
-                    </View>
-                </View>
+                ) : 
+                (
+                    <DonatePay value={donateValue} setValue={setDonateValue}/>
+                )}
             </ScrollView>
 
         </View>
