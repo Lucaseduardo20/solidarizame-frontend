@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Text, View } from 'react-native';
 import  Login  from './src/screens/Login';
 import { Home } from './src/screens/Home';
+import { Donate } from './src/screens/Donate';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ function App() {
   }}>
         <Stack.Screen name='Login' component={Home}></Stack.Screen>
         <Stack.Screen name='Home' component={Home}></Stack.Screen>
+        <Stack.Screen name='Donate' component={Donate}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -7,7 +7,7 @@ export const Home = ({navigation}) => {
     return (
         <>
             <NavBar navigation={navigation} />
-            <HomeBody />
+            <HomeBody navigation={navigation}/>
         </>
     )
 }

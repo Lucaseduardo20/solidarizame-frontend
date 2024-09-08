@@ -4,7 +4,7 @@ import {IconInput} from "../../utils/IconInput"
 import { PlacesCarousel } from "./PlacesCarousel/PlacesCarousel"
 import { DonateSession } from "./DonateSession/DonateSession"
 
-export const HomeBody = () => {
+export const HomeBody = ({navigation}) => {
     const [searchField, setSearchField] = useState();
     const styles = StyleSheet.create({
         header: {
@@ -47,7 +47,7 @@ export const HomeBody = () => {
             </View>
             <View style={styles.body}>
                 <PlacesCarousel></PlacesCarousel>
-                <DonateSession></DonateSession>
+                <DonateSession navigation={navigation}></DonateSession>
             </View>
         </ScrollView>
 

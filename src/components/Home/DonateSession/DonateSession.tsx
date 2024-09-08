@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { DonateCard } from "./DonateCard"
 
-export const DonateSession = () => {
+export const DonateSession = (props) => {
     const styles = StyleSheet.create({
         container: {
             width: '100%',
@@ -27,18 +27,22 @@ export const DonateSession = () => {
 
     const data = [
         {
+            id: 1,
             title: 'PIX ESTADO',
             text: 'Doe direto patra o estado do Rio Grande do Sul'
         },
         {
+            id: 2,
             title: 'Vakinha Ong',
             text: 'Contribua com a vakinha da ong Y e ajude crianças'
         },
         {
+            id: 3,
             title: 'PIX ESTADO',
             text: 'Doe direto patra o estado do Rio Grande do Sul'
         },
         {
+            id: 4,
             title: 'Vakinha Ong',
             text: 'Contribua com a vakinha da ong Y e ajude crianças'
         }
@@ -49,7 +53,7 @@ export const DonateSession = () => {
             <Text style={styles.title}>Doações em Dinheiro</Text>
             <View style={styles.content}>
                 {data.map((item, key) => (
-                    <TouchableOpacity>
+                    <TouchableOpacity key={key} onPress={(key) => props.navigation.navigate('Donate')}>
                         <DonateCard data={item}>
 
                         </DonateCard>

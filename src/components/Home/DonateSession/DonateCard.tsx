@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native"
 
 interface ItemData {
+    id: Number,
     title: string,
     text: string
 }
