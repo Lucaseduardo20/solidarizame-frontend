@@ -1,7 +1,7 @@
 import { FlatList, View, StyleSheet, Text } from "react-native";
 import { PlaceListItem } from "./PlaceListItem";
 
-export const PlacesCarousel = () => {
+export const PlacesCarousel = ({navigation}) => {
     const styles = StyleSheet.create({
         container: {
             width: '100%',
@@ -49,7 +49,7 @@ export const PlacesCarousel = () => {
                     horizontal
                     data={flatListData}
                     renderItem={({item}) => (
-                        <PlaceListItem data={item}></PlaceListItem>
+                        <PlaceListItem data={item} navigation={navigation}></PlaceListItem>
                     )}
                 />
             </View>

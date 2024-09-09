@@ -7,10 +7,11 @@ interface ItemData {
 }
 
 type PropsType = {
-    data: ItemData
+    data: ItemData,
+    navigation: any
 }
 
-export const PlaceListItem = ({data}: PropsType) => {
+export const PlaceListItem = ({data, navigation}: PropsType) => {
     const styles = StyleSheet.create({
         card: {
             width: 241,
@@ -52,7 +53,7 @@ export const PlaceListItem = ({data}: PropsType) => {
                 <Text style={styles.text}>{data.text}</Text>
             </View>
             <View style={styles.footer}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Ongs')}>
                     <MaterialIcons name="arrow-forward" size={24} color="#2E65F3" />
                 </TouchableOpacity>
             </View>

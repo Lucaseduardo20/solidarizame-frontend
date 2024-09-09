@@ -46,7 +46,7 @@ export const HomeBody = ({navigation}) => {
                 <IconInput state={searchField} setState={setSearchField} icon="search" placeholder='Solidarize Conosco'></ IconInput>
             </View>
             <View style={styles.body}>
-                <PlacesCarousel></PlacesCarousel>
+                <PlacesCarousel navigation={navigation}></PlacesCarousel>
                 <DonateSession navigation={navigation}></DonateSession>
             </View>
         </ScrollView>

@@ -6,6 +6,7 @@ import  Login  from './src/screens/Login';
 import { Home } from './src/screens/Home';
 import { Donate } from './src/screens/Donate';
 import { ThankYou } from './src/screens/ThankYou';
+import Ongs from './src/screens/Ongs';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,10 +16,11 @@ function App() {
       <Stack.Navigator  style={styles.container}   screenOptions={{
     headerShown: false
   }}>
-        <Stack.Screen name='Login' component={Home}></Stack.Screen>
+        <Stack.Screen name='Login' component={Ongs}></Stack.Screen>
         <Stack.Screen name='Home' component={Home}></Stack.Screen>
         <Stack.Screen name='Donate' component={Donate}></Stack.Screen>
         <Stack.Screen name='ThankYou' component={ThankYou}></Stack.Screen>
+        <Stack.Screen name='Ongs' component={Ongs}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
