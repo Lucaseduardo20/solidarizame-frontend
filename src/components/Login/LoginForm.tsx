@@ -46,7 +46,6 @@ const LoginForm = (props) => {
     const login = async (credentials) => {
         try {
             const response = await axios.post(baseURL, credentials)
-            console.log(response.data);
             props.navigation.navigate('Home')
             return response.data
         } catch (err) {

@@ -87,7 +87,7 @@ export const Donate = (props) => {
 
                 ) : 
                 (
-                    <DonatePay value={donateValue} setValue={setDonateValue}/>
+                    <DonatePay navigation={props.navigation} value={donateValue} setValue={setDonateValue}/>
                 )}
             </ScrollView>
 
