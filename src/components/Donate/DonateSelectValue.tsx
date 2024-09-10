@@ -64,6 +64,14 @@ export const DonateSelectValue = ({value, setValue}) => {
         }
     })
 
+        const formatCurrency = (value) => {
+        const numericValue = value.replace(/[^0-9]/g, '');
+        const formattedValue = (numericValue / 100).toFixed(2)
+            .replace('.', ',')
+            .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        return `R$ ${formattedValue}`;
+    };
+
     return (
         <View style={styles.content}>
         <Text style={styles.infoText}>Esse PIX é oficial do governo do estado do Rio Grande do Sul, todo o dinheiro arrecadado será administrado pelo estado e será destinado para ajudar as vitimas da tragedia e na recuperação das cidades.</Text>
@@ -74,22 +82,22 @@ export const DonateSelectValue = ({value, setValue}) => {
             marginVertical: 30
         }}>Selecione um valor</Text>
         <View style={styles.valuesContainer}>
-            <TouchableOpacity onPress={() => setValue(5)}>
+            <TouchableOpacity onPress={() => setValue(`R$ ${5},00`)}>
                 <View style={styles.valueCard}>
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>R$5,00</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => setValue(10)}>
+            <TouchableOpacity onPress={() => setValue(`R$ ${10},00`)}>
                 <View style={styles.valueCard}>
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>R$10,00</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => setValue(25)}>
+            <TouchableOpacity onPress={() => setValue(`R$ ${25},00`)}>
                 <View style={styles.valueCard}>
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>R$25,00</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => setValue(50)}>
+            <TouchableOpacity onPress={() => setValue(`R$ ${50},00`)}>
                 <View style={styles.valueCard}>
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>R$50,00</Text>
                 </View>

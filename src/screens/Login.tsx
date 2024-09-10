@@ -3,7 +3,7 @@ import { Text, View } from "react-native"
 import SolidarizameLogo from "../icons/SolidarizameLogo"
 import LoginForm from "../components/Login/LoginForm"
 
-const Login = () => {
+const Login = (props) => {
     return (
         <View style={styles.container}>
             <SolidarizameLogo />
@@ -12,7 +12,7 @@ const Login = () => {
             }}>
                 <Text style={styles.h2}>Login</Text>
             </View>
-            <LoginForm />
+            <LoginForm navigation={props.navigation}/>
         </View>
     )
 }

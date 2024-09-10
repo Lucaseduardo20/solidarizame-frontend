@@ -1,6 +1,6 @@
-import React, { Pressable } from "react-native";
+import React, { Pressable, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
-import {View, StyleSheet, Linking, Text, Button } from "react-native";
+import { View, StyleSheet, Linking, Text, Button } from "react-native";
 import axios from "axios";
 import Input from "../../utils/Input";
 import baseURL from "../../../services/api";
@@ -10,7 +10,7 @@ interface Link {
     url: string
 }
 
-const Link = ({label, url}: Link) => {
+const Link = ({ label, url }: Link) => {
     const handlePress = async () => {
         await Linking.openURL(url);
     }
@@ -19,20 +19,20 @@ const Link = ({label, url}: Link) => {
         <Text style={styles.forgetPassword} onPress={handlePress}>{label}</Text>)
 }
 
-const Submit = (credentials, handleSubmit) => {
+// const Submit = (credentials, handleSubmit) => {
 
-    return (
-        <Pressable style={styles.submit} onPress={handleSubmit}>
-            <Text style={styles.submitText}>Login</Text>
-        </Pressable>
-    )
-}
+//     return (
+//         <Pressable style={styles.submit} onPress={() => handleSubmit()}>
+//             <Text style={styles.submitText}>Login</Text>
+//         </Pressable>
+//     )
+// }
 
 const Footer = () => {
     return (
         <View style={styles.footerContainer}>
-            <Text style={{fontFamily: 'Inter'}}>Ainda não possui uma conta?</Text>
-            <Link label={'Cadastre-se'} url={'www.google.com'}/>
+            <Text style={{ fontFamily: 'Inter' }}>Ainda não possui uma conta?</Text>
+            <Link label={'Cadastre-se'} url={'www.google.com'} />
         </View>
     )
 }
@@ -44,10 +44,10 @@ const LoginForm = (props) => {
     const [credentials, setCredentials] = useState({})
 
     const login = async (credentials) => {
+        props.navigation.navigate('Home')
         try {
-            const response = await axios.post(baseURL, credentials)
-            props.navigation.navigate('Home')
-            return response.data
+            // const response = await axios.post(baseURL, credentials)
+            // return response.data
         } catch (err) {
             console.log(err)
         }
@@ -67,9 +67,11 @@ const LoginForm = (props) => {
     return (
         <View style={styles.container}>
             <Input type="text" label="E-mail ou celular" state={email} setState={setEmail} />
-            <Input type="password" label="Senha" state={password} setState={setPassword}/>
-            <Link label={'Esqueci minha senha'} url={'www.google.com'}/>
-            <Submit credentials={credentials} handleSubmit={handleSubmit}/>
+            <Input type="password" label="Senha" state={password} setState={setPassword} />
+            <Link label={'Esqueci minha senha'} url={'www.google.com'} />
+            <TouchableOpacity style={styles.submit} onPress={() => handleSubmit()}>
+                <Text style={styles.submitText}>Login</Text>
+            </TouchableOpacity>
             <Footer />
         </View>
     )
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
 
     forgetPassword: {
         fontWeight: 'bold',
-            color: '#2563EB',
+        color: '#2563EB',
     },
 
     submit: {

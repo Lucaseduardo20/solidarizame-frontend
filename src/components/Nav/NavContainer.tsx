@@ -58,7 +58,7 @@ export const NavContainer = (props: PropsType) => {
     })
 
     const handleLogout = () => {
-        props.navigation.navigate('Home')
+        props.navigation.navigate('Login')
         props.setTrigger(!props.trigger)
     }
 

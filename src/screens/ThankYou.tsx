@@ -37,7 +37,7 @@ export const ThankYou = ({navigation}) => {
             <Image style={{width: 400, height: 260}} source={require('../../assets/thank-you.png')}></Image>
             <View style={styles.content}>
                 <Text style={styles.label}>Obrigado!!</Text>
-                <Text style={styles.text}>Blandit semper arcu dictum augue tortor. Dignissim enim eget auctor justo diam euismod.</Text>
+                <Text style={styles.text}>Obrigado por colaborar com o RS neste momento tão difícil, sua solidariedade faz toda a diferença!</Text>
 
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                     <View style={styles.button}>

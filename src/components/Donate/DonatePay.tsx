@@ -87,13 +87,13 @@ export const DonatePay = ({navigation, value, setValue }) => {
         const keyboardDidShowListener = Keyboard.addListener(
             'keyboardDidShow',
             () => {
-                setKeyboardVisible(true); // Muda o estado quando o teclado é exibido
+                setKeyboardVisible(true); 
             }
         );
         const keyboardDidHideListener = Keyboard.addListener(
             'keyboardDidHide',
             () => {
-                setKeyboardVisible(false); // Muda o estado quando o teclado é ocultado
+                setKeyboardVisible(false); 
             }
         );
 
